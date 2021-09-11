@@ -6,7 +6,7 @@ import optparse
 
 def get_arguments():
     parser = optparse.OptionParser()
-    parser.add_option("-t", "--target" dest = "ipaddr" , help = "Please specify ip address or ip range using -t or --target")
+    parser.add_option("-t", dest = "ipaddr" , help = "Please specify ip address or ip range using -t ")
     (options, arguments) = parser.parse_args()
     if not options.ipaddr:
         parser.error("please specify ip address")
@@ -34,8 +34,6 @@ def print_result(results_list):
 options = get_arguments()
 scan_result = scan(options.ipaddr)
 print_result(scan_result)
-
-
 
 
 
