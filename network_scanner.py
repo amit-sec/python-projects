@@ -2,12 +2,12 @@
 
 #coded during zaid sabih course on udemy
 import scapy.all as scapy
-import optparse
+import argparse
 
 def get_arguments():
-    parser = optparse.OptionParser()
-    parser.add_option("-t", dest = "ipaddr" , help = "Please specify ip address or ip range using -t ")
-    (options, arguments) = parser.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-t", dest = "ipaddr" , help = " add ip address")
+    options = parser.parse_args()
     if not options.ipaddr:
         parser.error("please specify ip address")
     return options
@@ -34,6 +34,7 @@ def print_result(results_list):
 options = get_arguments()
 scan_result = scan(options.ipaddr)
 print_result(scan_result)
+
 
 
 
